@@ -1,9 +1,8 @@
-# postgres_test.py
 import psycopg2
 import pandas as pd
 import yaml
 
-# Загружаем конфигурацию из YAML файла
+# Загружаем конфигурацию 
 with open('config.yaml', 'r') as file:
     config = yaml.safe_load(file)
 
