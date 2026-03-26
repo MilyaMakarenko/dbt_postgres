@@ -47,3 +47,19 @@ with duckdb.connect('data/my_db.db') as con:
     for row in result:
         listing_id, prop_type, city, price, leads = row
         print(f"{listing_id:<15} {prop_type:<15} {city:<20} {price:<12,} {leads:<6}")
+
+
+
+
+with duckdb.connect('data/my_db.db') as con:
+    print("All tables:")
+    tables = con.execute("SHOW TABLES").fetchall()
+    for table in tables:
+        print(f"  - {table[0]}")
+    
+    print("\nSilver layer data:")
+    silver_tables = con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'silver%'").fetchall()
+    for table in silver_tables:
+        count = con.execute(f"SELECT COUNT(*) FROM {table[0]}").fetchone()[0]
+        print(f"  {table[0]}: {count} rows")
+        print(con.execute(f"SELECT * FROM {table[0]} LIMIT 3").df())
