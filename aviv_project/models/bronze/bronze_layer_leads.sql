@@ -1,7 +1,8 @@
 -- models/bronze/bronze_layer_leads.sql
 {{ config(
-    materialized='table',
+    materialized='ephemeral',
     schema='bronze'
 ) }}
 
-SELECT * FROM bronze_layer_leads
+SELECT * 
+FROM bronze_layer_leads
