@@ -4,6 +4,7 @@ This project is to train bulding Data piplines using DBT and classical Postgres 
 And here I set connect with my local Postgres DB and DuckDB for intertransformations
 
 My Postgres DB has row data (generated)
+
 <img width="636" height="185" alt="image" src="https://github.com/user-attachments/assets/38ed0208-056b-4a9f-aa83-1b7993679ff3" />
 
 I work in Virtual Enviroment
